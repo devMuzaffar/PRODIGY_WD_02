@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter";
+}
+
+:root {
+  --bg: #2d1338;
+  --container-bg: #f6f6f6;
+  --font-color: #ffffff;
+  --button-primary: #e57cd8;
+  --button-primary-hover: #924c8a;
+  --button-secondary: #574261;
+  --button-secondary-hover: #2c2231;
+  --item-color: #2c1338;
+}
+
+/* Main Body */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--container-bg);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+/* Time Container */
+.timebox {
+  background: var(--bg);
+  color: var(--font-color);
+  width: 650px;
+  max-height: 500px;
+  padding: 20px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.timebox > h1 {
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+/* Timer */
+.timebox > .timer {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.timebox > .timer > p {
+  font-size: 6rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.timebox > .timer > .minutes,
+.timebox > .timer > .seconds,
+.timebox > .timer > .miliseconds {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  text-align: right;
+}
+
+.timebox > .timer > .minutes > h2,
+.timebox > .timer > .seconds > h2,
+.timebox > .timer > .miliseconds > h2 {
+  font-size: 7rem;
+  font-weight: 600;
+  line-height: 0.95;
+}
+
+.timebox > .timer > .minutes > p,
+.timebox > .timer > .seconds > p,
+.timebox > .timer > .miliseconds > p {
+  margin-right: 8px;
+}
+
+/* Buttons */
+.buttons-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.buttons-group > button {
+  border-radius: 30px;
+  border: none;
+  background: var(--button-primary);
+  color: var(--font-color);
+  font-weight: 500;
+  transition: all 0.5s ease;
+  width: 25%;
+  height: 40px;
+}
+
+.buttons-group > :not(:nth-child(1)) {
+  background: var(--button-secondary);
+}
+
+.buttons-group > :not(:nth-child(1)):hover {
+  background: var(--button-secondary-hover);
+  cursor: pointer;
+}
+
+.buttons-group > button:hover {
+  background: var(--button-primary-hover);
+  cursor: pointer;
+}
+
+/* Time Lap List */
+.lapList {
+  width: 80%;
+  margin: 5px 0;
+  overflow-y: auto;
+}
+
+.lapList > .lapItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.lapItem > :nth-child(1) {
+  color: var(--item-color);
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 5px;
+  font-weight: 500;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lapItem > :nth-child(2) {
+  color: #a9a9a9;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 432px) {
+
+  .timebox {
+    width: 85%;
+  }
+
+  .timebox > .timer > p {
+    font-size: 3rem;
+    line-height: 0.95;
+  }
+
+  .timebox > .timer > .minutes,
+  .timebox > .timer > .seconds,
+  .timebox > .timer > .miliseconds {
+    width: 60px;
+  }
+
+  .timebox > .timer > .minutes > h2,
+  .timebox > .timer > .seconds > h2,
+  .timebox > .timer > .miliseconds > h2 {
+    font-size: 3rem;
+  }
+
+  .timebox > .timer > .minutes > p,
+  .timebox > .timer > .seconds > p,
+  .timebox > .timer > .miliseconds > p {
+    font-size: 0.5rem;
+    text-align: right;
+    margin-right: 5px;
+  }
+
+  .buttons-group {
+    gap: 10px;
+    margin: 0;
+  }
+
+  .buttons-group > button {
+    font-size: 0.8rem;
+  }
+
+  .lapList {
+    width: 95%;
+  }
+
+  .lapList > .lapItem > p {
+    font-size: 0.85rem;
+  }
+}
